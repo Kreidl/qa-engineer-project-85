@@ -554,16 +554,7 @@
     no data
   steps:
     - Пользователь1: в блоке Online players нажать на Пользователя2; нажать Send an invite; выбрать Level=1, Game Type = With a bot, Choose task by name or tags = rect_area; нажать Create battle
-    - Пользователь2: в шапке сайта нажать на кнопку с двумя перекрещенными мечами; нажать Accept; в редакторе открывшейся игры написать 
-    'const _ = require("lodash");
-    const R = require("rambda");
-
-    const solution = (width, length) => {
-    return width * length;
-    };
- 
-    module.exports = solution;'
-    - Нажать Run
+    - Пользователь2: в шапке сайта нажать на кнопку с двумя перекрещенными мечами; нажать Accept; в редакторе открывшейся игры вместо return 0 написать return width * length, нажать Run
     - Пользователь1: нажать I’ll be back, написать что-либо в редакторе
   expected-result: |
     Проигравший игрок продолжает написание кода
@@ -790,18 +781,7 @@
   steps:
     - Зафиксировать рейтинг Пользователя2
     - Пользователь1: в блоке Online players нажать на Пользователя2; нажать Send an invite; выбрать Level=1, Game Type = With a bot, Choose task by name or tags = rect_area; нажать Create battle
-    - Пользователь2: в шапке сайта нажать на кнопку с двумя перекрещенными мечами; нажать Accept; в редакторе открывшейся игры написать 
-    'const _ = require("lodash");
-    const R = require("rambda");
-
-    const solution = (width, length) => {
-    return width * length;
-    };
- 
-    module.exports = solution;'
-    - Нажать Run
-    - Нажать GG
-    - Нажать Back to home
+    - Пользователь2: в шапке сайта нажать на кнопку с двумя перекрещенными мечами; нажать Accept; в редакторе открывшейся игры вместо return 0 написать return width * length, нажать Run, нажать GG, нажать Back to home
     - Сравнить значение очков рейтинга после игры и до игры
   expected-result: |
     Рейтинг пользователя увеличился
@@ -817,16 +797,7 @@
   steps:
     - Зафиксировать рейтинг Пользователя1
     - Пользователь1: в блоке Online players нажать на Пользователя2; нажать Send an invite; выбрать Level=1, Game Type = With a bot, Choose task by name or tags = rect_area; нажать Create battle
-    - Пользователь2: в шапке сайта нажать на кнопку с двумя перекрещенными мечами; нажать Accept; в редакторе открывшейся игры написать 
-    'const _ = require("lodash");
-    const R = require("rambda");
-
-    const solution = (width, length) => {
-    return width * length;
-    };
- 
-    module.exports = solution;'
-    - Нажать Run
+    - Пользователь2: в шапке сайта нажать на кнопку с двумя перекрещенными мечами; нажать Accept; в редакторе открывшейся игры вместо return 0 написать return width * length, нажать Run
     - Пользователь1: нажать Back to home
     - Сравнить значение очков рейтинга после игры и до игры
   expected-result: |
