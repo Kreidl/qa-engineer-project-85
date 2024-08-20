@@ -490,15 +490,35 @@
   test-data: |
     no data
   steps:
-    - Пользователь1: в блоке Online players нажать на Пользователя2, нажать Send an invite, выбрать ажать Create battle
-    - Нажать With a bot
-    - В открывшемся окне нажать Create battle
-    - Нажать на красный флажок
-    - Нажать Give up
-    - Нажать I’ll be back
-    - Нажать Rematch
+    - Пользователь1: в блоке Online players нажать на Пользователя2; нажать Send an invite; выбрать Level=1, Game Type = With a bot, Choose task by name or tags = rect_area; нажать Create battle
+    - Пользователь2: в шапке сайта нажать на кнопку с двумя перекрещенными мечами; нажать Accept; в редакторе открывшейся игры написать 
+    const _ = require("lodash");
+    const R = require("rambda");
+
+    const solution = (width, length) => {
+    return width * length;
+    };
+ 
+    module.exports = solution;
+    - Нажать Run
+    - Пользователь1: нажать I’ll be back, написать что-либо в редакторе
   expected-result: |
-    Игра началась заново
+    Проигравший игрок продолжает написание кода
+
+- summary: |
+    Проверка возможности продолжить написание кода в игре, если соперник сдался
+  requirement: |
+    Игрок может продолжить написание своего кода, если соперник сдался
+  prerequisites:
+    Два авторизованных пользователя
+  test-data: |
+    no data
+  steps:
+    - Пользователь1: в блоке Online players нажать на Пользователя2; нажать Send an invite; нажать Create battle
+    - Пользователь2: в шапке сайта нажать на кнопку с двумя перекрещенными мечами; нажать Accept; нажать на красный флажок, нажать Give up, нажать I’ll be back
+    - Пользователь1: нажать GG, написать что-либо в редакторе
+  expected-result: |
+    Оставшийся игрок продолжает написание своего кода
     
 - summary: |
     Проверка возможности переиграть игру заново с тем же соперником
