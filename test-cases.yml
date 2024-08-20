@@ -291,7 +291,7 @@
   test-data: |
     no data
   steps:
-    - В блоке Online players: нажать на нужного человека
+    - В блоке Online players нажать на нужного человека
     - Нажать Send an invite
     - Нажать Create battle
   expected-result: |
@@ -703,7 +703,7 @@
   test-data: |
     no data
   steps:
-    - Нажать в Online players: на любого пользователя
+    - Нажать в Online players на любого пользователя
     - Нажать Direct message
     - В открывшемся чате написать сообщение
     - Нажать Enter
