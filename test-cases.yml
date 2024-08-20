@@ -185,14 +185,14 @@
     Зарегистрированный email
   steps:
     - Нажать Forgot your password?
-    - Повторно ввести Email в открывшейся форме
+    - Ввести Email в открывшейся форме
     - Нажать Submit
     - Следовать инструкциям по сбросу пароля, высланным на указанный email
   expected-result: |
     Пароль сброшен, вход в систему c новым паролем
         
 - summary: |
-    Проверка создания игры с ботами
+    Проверка создания игры с ботом
   requirement: |
     Пользователь может создать игру с ботом
   prerequisites: |
@@ -202,7 +202,7 @@
   steps:
     - Нажать Create a game
     - Нажать With a bot
-    - В открывшемся окне нажать Create battle
+    - Нажать Create battle
   expected-result: |
     Игра с ботом создана
 
@@ -217,9 +217,9 @@
   steps:
     - Нажать Create a game
     - Нажать With other user
-    - В открывшемся окне нажать Create battle
+    - Нажать Create battle
   expected-result: |
-    Игра с другим игроком создана
+    Игра с другим игроком создана, ожидание соперника
         
 - summary: |
     Проверка отправки запроса на игру другу через форму создания игры
@@ -308,7 +308,7 @@
     - Нажать Create a game
     - Нажать With a bot
     - В поле Level выбрать уровень игры
-    - В открывшемся окне нажать Create battle
+    - Нажать Create battle
   expected-result: |
     Пользователь создаст игру с выбранным уровнем игры
         
@@ -324,7 +324,7 @@
     - Нажать Create a game
     - Нажать With a bot
     - В поле Time control настроить время
-    - В открывшемся окне нажать Create battle
+    - Нажать Create battle
   expected-result: |
     Пользователь создаст игру с установленным таймером
 
@@ -340,7 +340,7 @@
     - Нажать Create a game
     - Нажать With a bot
     - В поле Choose task by name or tags выбрать любое задание
-    - В открывшемся окне нажать Create battle
+    - Нажать Create battle
   expected-result: |
     Пользователь создаст игру с выбранным заданием
 
@@ -369,10 +369,10 @@
   steps:
     - Нажать Create a game
     - Нажать With a bot
-    - В открывшемся окне нажать Create battle
+    - Нажать Create battle
     - Выбрать язык в выпадающем списке
   expected-result: |
-    Язык программирования у пользователя поменяется на выбранный
+    Язык программирования у пользователя поменялся на выбранный
 
 - summary: |
     Проверка возможности писать в чате во время игры
@@ -385,7 +385,7 @@
   steps:
     - Нажать Create a game
     - Нажать With a bot
-    - В открывшемся окне нажать Create battle
+    - Нажать Create battle
     - В чате написать сообщение
     - Нажать Enter
   expected-result: |
@@ -402,7 +402,7 @@
   steps:
     - Нажать Create a game
     - Нажать With a bot
-    - В открывшемся окне нажать Create battle
+    - Нажать Create battle
     - Нажать En
     - Нажать Rus
   expected-result: |
@@ -419,7 +419,7 @@
   steps:
     - Нажать Create a game
     - Нажать With a bot
-    - В открывшемся окне нажать Create battle
+    - Нажать Create battle
     - Нажать на красный флажок
     - Нажать Give up (красный флажок)
     - Нажать I’ll be back
@@ -439,7 +439,7 @@
     - Нажать кнопку With a bot
     - Нажать Create battle
     - Ввести в редакторе что-либо
-    - Нажать Reset solution (две круглые скобки)
+    - Нажать Reset solution (две полукруглые стрелки)
   expected-result: |
     Редактор перезагрузился
 
@@ -463,9 +463,9 @@
     Игра началась заново
 
 - summary: |
-    Проверка возможности выполнить отладку неограниченное количество раз
+    Проверка возможности выполнить проверку кода неограниченное количество раз
   requirement: |
-    Каждый игрок может запустить отладку неограниченное количество раз
+    Каждый игрок может запустить проверку кода неограниченное количество раз
   prerequisites:
     no data
   test-data: |
@@ -473,7 +473,7 @@
   steps:
     - Нажать Create a game
     - Нажать With a bot
-    - В открывшемся окне нажать Create battle
+    - Нажать Create battle
     - Написать что-либо в редакторе
     - Нажать Run
     - Нажать Give up
@@ -493,7 +493,7 @@
   steps:
     - Нажать Create a game
     - Нажать With a bot
-    - В открывшемся окне нажать Create battle
+    - Нажать Create battle
     - Нажаьб Back to home
     - Нажать Continue
   expected-result: |
@@ -502,7 +502,7 @@
 - summary: |
     Проверка возможности проигравшего продолжить игру после определения победителя
   requirement: |
-    Проигравший игрок может продолжить написание своего кода
+    Проигравший игрок может продолжить написание своего кода 
   prerequisites:
     Два авторизованных пользователя
   test-data: |
@@ -549,7 +549,7 @@
   steps:
     - Нажать Create a game
     - Нажать With a bot
-    - В открывшемся окне нажать Create battle
+    - Нажать Create battle
     - Скопировать код соперника из редактора
   expected-result: |
     Код соперника не копируется
@@ -565,7 +565,7 @@
   steps:
     - Нажать Create a game
     - Нажать With a bot
-    - В открывшемся окне нажать Create battle
+    - Нажать Create battle
     - Скопировать описание задания
   expected-result: |
     Описание задания не копируется
@@ -626,7 +626,7 @@
   test-data: |
     no data
   steps:
-    - Нажать History a game
+    - Нажать History
   expected-result: |
     Открыта история игр
 
@@ -653,8 +653,8 @@
   test-data: |
     no data
   steps:
-    - Перейти во вкладку History на главной странице сайта
-    - Нажать Show на рандомной битве
+    - Перейти во вкладку History 
+    - Нажать Show на любой битве
   expected-result: |
     Открылась запись игры
 
@@ -727,7 +727,7 @@
   test-data: |
     no data
   steps:
-    - В Leaderboard на главной странице нажать Week, Month, All
+    - В Leaderboard на главной странице нажать Week
     - Нажать Month
     - Нажать All
     - Навести курсор на любого игрока, просмотреть открывшиеся данные
