@@ -444,7 +444,137 @@
   expected-result: |
     Игра началась заново
 
+- summary: |
+    Проверка возможности выполнить отладку неограниченное количество раз
+  requirement: |
+    Каждый игрок может запустить отладку неограниченное количество раз
+  prerequisites:
+    no data
+  test-data: |
+    no data
+  steps:
+    - Нажать Create a game
+    - Нажать With a bot
+    - В открывшемся окне нажать Create battle
+    - Написать что-либо в редакторе
+    - Нажать Run
+    - Нажать Give up
+    - Просмотреть вкладку Output
+    - Повторить последние три шага несколько раз
+  expected-result: |
+    Отладка каждый раз запускается без ограничений
 
+- summary: |
+    Проверка возможности переподключиться к незавершённой игре 
+  requirement: |
+    Игрок может переподключиться к игре в любой момент, если она не завершилась
+  prerequisites:
+    no data
+  test-data: |
+    no data
+  steps:
+    - Нажать Create a game
+    - Нажать With a bot
+    - В открывшемся окне нажать Create battle
+    - Нажаьб Back to home
+    - Нажать Continue
+  expected-result: |
+    Игрок продолжает игру
+
+- summary: |
+    Проверка возможности проигравшего продолжить игру после определения победителя
+  requirement: |
+    Проигравший игрок может продолжить написание своего кода
+  prerequisites:
+    Два авторизованных пользователя
+  test-data: |
+    no data
+  steps:
+    - Пользователь1: в блоке Online players нажать на Пользователя2, нажать Send an invite, выбрать ажать Create battle
+    - Нажать With a bot
+    - В открывшемся окне нажать Create battle
+    - Нажать на красный флажок
+    - Нажать Give up
+    - Нажать I’ll be back
+    - Нажать Rematch
+  expected-result: |
+    Игра началась заново
+    
+- summary: |
+    Проверка возможности переиграть игру заново с тем же соперником
+  requirement: |
+    Пользователь может создать свое задание
+  prerequisites:
+    no data
+  test-data: |
+    no data
+  steps:
+    - Нажать Create a game
+    - Нажать With a bot
+    - В открывшемся окне нажать Create battle
+    - Нажать на красный флажок
+    - Нажать Give up
+    - Нажать I’ll be back
+    - Нажать Rematch
+  expected-result: |
+    Игра началась заново
+
+- summary: |
+    Проверка возможности переиграть игру заново с тем же соперником
+  requirement: |
+    Пользователь может просмотреть все задания
+  prerequisites:
+    no data
+  test-data: |
+    no data
+  steps:
+    - Нажать Create a game
+    - Нажать With a bot
+    - В открывшемся окне нажать Create battle
+    - Нажать на красный флажок
+    - Нажать Give up
+    - Нажать I’ll be back
+    - Нажать Rematch
+  expected-result: |
+    Игра началась заново
+
+- summary: |
+    Проверка возможности переиграть игру заново с тем же соперником
+  requirement: |
+    Пользователи могут просмотреть историю всех проведённых игр
+  prerequisites:
+    no data
+  test-data: |
+    no data
+  steps:
+    - Нажать Create a game
+    - Нажать With a bot
+    - В открывшемся окне нажать Create battle
+    - Нажать на красный флажок
+    - Нажать Give up
+    - Нажать I’ll be back
+    - Нажать Rematch
+  expected-result: |
+    Игра началась заново
+
+- summary: |
+    Проверка возможности переиграть игру заново с тем же соперником
+  requirement: |
+    Пользователи могут быть в роли наблюдателя любой игры
+  prerequisites:
+    no data
+  test-data: |
+    no data
+  steps:
+    - Нажать Create a game
+    - Нажать With a bot
+    - В открывшемся окне нажать Create battle
+    - Нажать на красный флажок
+    - Нажать Give up
+    - Нажать I’ll be back
+    - Нажать Rematch
+  expected-result: |
+    Игра началась заново
 
 - summary: |
     Проверка возможности выбора необходимого языка программирования во время игры
