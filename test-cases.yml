@@ -555,14 +555,14 @@
   steps:
     - Пользователь1: в блоке Online players нажать на Пользователя2; нажать Send an invite; выбрать Level=1, Game Type = With a bot, Choose task by name or tags = rect_area; нажать Create battle
     - Пользователь2: в шапке сайта нажать на кнопку с двумя перекрещенными мечами; нажать Accept; в редакторе открывшейся игры написать 
-    const _ = require("lodash");
+    'const _ = require("lodash");
     const R = require("rambda");
 
     const solution = (width, length) => {
     return width * length;
     };
  
-    module.exports = solution;
+    module.exports = solution;'
     - Нажать Run
     - Пользователь1: нажать I’ll be back, написать что-либо в редакторе
   expected-result: |
@@ -791,14 +791,14 @@
     - Зафиксировать рейтинг Пользователя2
     - Пользователь1: в блоке Online players нажать на Пользователя2; нажать Send an invite; выбрать Level=1, Game Type = With a bot, Choose task by name or tags = rect_area; нажать Create battle
     - Пользователь2: в шапке сайта нажать на кнопку с двумя перекрещенными мечами; нажать Accept; в редакторе открывшейся игры написать 
-    const _ = require("lodash");
+    'const _ = require("lodash");
     const R = require("rambda");
 
     const solution = (width, length) => {
     return width * length;
     };
  
-    module.exports = solution;
+    module.exports = solution;'
     - Нажать Run
     - Нажать GG
     - Нажать Back to home
@@ -818,14 +818,14 @@
     - Зафиксировать рейтинг Пользователя1
     - Пользователь1: в блоке Online players нажать на Пользователя2; нажать Send an invite; выбрать Level=1, Game Type = With a bot, Choose task by name or tags = rect_area; нажать Create battle
     - Пользователь2: в шапке сайта нажать на кнопку с двумя перекрещенными мечами; нажать Accept; в редакторе открывшейся игры написать 
-    const _ = require("lodash");
+    'const _ = require("lodash");
     const R = require("rambda");
 
     const solution = (width, length) => {
     return width * length;
     };
  
-    module.exports = solution;
+    module.exports = solution;'
     - Нажать Run
     - Пользователь1: нажать Back to home
     - Сравнить значение очков рейтинга после игры и до игры
