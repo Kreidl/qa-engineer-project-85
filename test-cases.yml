@@ -247,8 +247,8 @@
   test-data: |
     no data
   steps:
-    - Пользователь1: нажать Create a game, нажать With other user, нажать Create battle
-    - Пользователь2: в Lobby найти Пользователя1, нажать Fight
+    - Пользователю1 нажать Create a game, нажать With other user, нажать Create battle
+    - Пользователю2 в Lobby найти Пользователя1, нажать Fight
   expected-result: |
     Игрок присоединился к игре
 
@@ -261,8 +261,8 @@
   test-data: |
     no data
   steps:
-    - Пользователь1: нажать Create a game, нажать With other user, нажать Create battle, найти свою игру в Lobby, нажать на Copy link (знак копирования)
-    - Пользователь2: вставить скопированный URL в поисковую строку, нажать Join
+    - Пользователю1 нажать Create a game, нажать With other user, нажать Create battle, найти свою игру в Lobby, нажать на Copy link (знак копирования)
+    - Пользователю2 вставить скопированный URL в поисковую строку, нажать Join
   expected-result: |
     Игрок присоединился к игре
         
@@ -304,11 +304,11 @@
   prerequisites: |
     Два пользователя авторизованы в системе
   test-data: |
-    Пользователь 1: Email = test@list.ru ; Password = 123456
-    Пользователь 2: Email = test2@list.ru ; Password = 123456
+    Пользователь1 Email = test@list.ru ; Password = 123456
+    Пользователь2 Email = test2@list.ru ; Password = 123456
   steps:
-    - Пользователю 1: В блоке Online players нажать на нужного человека, нажать Send an invite, нажать Create battle
-    - Пользователю 2: В шапке сайта нажать на кнопку с двумя перекрещенными мечами, нажать Accept
+    - Пользователю1 В блоке Online players нажать на нужного человека, нажать Send an invite, нажать Create battle
+    - Пользователю2 В шапке сайта нажать на кнопку с двумя перекрещенными мечами, нажать Accept
   expected-result: |
     Игра началась
 
@@ -319,11 +319,11 @@
   prerequisites: |
     Два пользователя авторизованы в системе
   test-data: |
-    Пользователь 1: Email = test@list.ru ; Password = 123456
-    Пользователь 2: Email = test2@list.ru ; Password = 123456
+    Пользователь1 Email = test@list.ru ; Password = 123456
+    Пользователь2 Email = test2@list.ru ; Password = 123456
   steps:
-    - Пользователю 1: В блоке Online players нажать на нужного человека, нажать Send an invite, нажать Create battle
-    - Пользователю 2: В шапке сайта нажать на кнопку с двумя перекрещенными мечами, нажать Decline
+    - Пользователю1 В блоке Online players нажать на нужного человека, нажать Send an invite, нажать Create battle
+    - Пользователю2 В шапке сайта нажать на кнопку с двумя перекрещенными мечами, нажать Decline
   expected-result: |
     Запрос на игру отклонён
 
@@ -553,9 +553,9 @@
   test-data: |
     no data
   steps:
-    - Пользователь1: в блоке Online players нажать на Пользователя2; нажать Send an invite; выбрать Level=1, Game Type = With a bot, Choose task by name or tags = rect_area; нажать Create battle
-    - Пользователь2: в шапке сайта нажать на кнопку с двумя перекрещенными мечами; нажать Accept; в редакторе открывшейся игры вместо return 0 написать return width * length, нажать Run
-    - Пользователь1: нажать I’ll be back, написать что-либо в редакторе
+    - Пользователю1 в блоке Online players нажать на Пользователя2; нажать Send an invite; выбрать Level=1, Game Type = With a bot, Choose task by name or tags = rect_area; нажать Create battle
+    - Пользователю2 в шапке сайта нажать на кнопку с двумя перекрещенными мечами; нажать Accept; в редакторе открывшейся игры вместо return 0 написать return width * length, нажать Run
+    - Пользователю1 нажать I’ll be back, написать что-либо в редакторе
   expected-result: |
     Проигравший игрок продолжает написание кода
 
@@ -568,9 +568,9 @@
   test-data: |
     no data
   steps:
-    - Пользователь1: в блоке Online players нажать на Пользователя2; нажать Send an invite; нажать Create battle
-    - Пользователь2: в шапке сайта нажать на кнопку с двумя перекрещенными мечами; нажать Accept; нажать на красный флажок, нажать Give up, нажать I’ll be back
-    - Пользователь1: нажать GG, написать что-либо в редакторе
+    - Пользователю1 в блоке Online players нажать на Пользователя2; нажать Send an invite; нажать Create battle
+    - Пользователю2 в шапке сайта нажать на кнопку с двумя перекрещенными мечами; нажать Accept; нажать на красный флажок, нажать Give up, нажать I’ll be back
+    - Пользователю1 нажать GG, написать что-либо в редакторе
   expected-result: |
     Оставшийся игрок продолжает написание своего кода
 
@@ -675,8 +675,8 @@
   test-data: |
     no data
   steps:
-    - Пользователь1: нажать Create a game, нажать With a bot, нажать Create battle
-    - Пользователь2: найти в Lobby игру с пользователем1, нажать Show
+    - Пользователю1 нажать Create a game, нажать With a bot, нажать Create battle
+    - Пользователю2 найти в Lobby игру с пользователем1, нажать Show
   expected-result: |
     Открылась игра в режиме наблюдения
 
@@ -733,7 +733,7 @@
   test-data: |
     no data
   steps:
-    - Нажать в Online players: на любого пользователя
+    - Нажать в Online players на любого пользователя
     - Нажать Direct message
     - Открыть выпадающий список в верхней части чата
     - Нажать General
@@ -780,8 +780,8 @@
     no data
   steps:
     - Зафиксировать рейтинг Пользователя2
-    - Пользователь1: в блоке Online players нажать на Пользователя2; нажать Send an invite; выбрать Level=1, Game Type = With a bot, Choose task by name or tags = rect_area; нажать Create battle
-    - Пользователь2: в шапке сайта нажать на кнопку с двумя перекрещенными мечами; нажать Accept; в редакторе открывшейся игры вместо return 0 написать return width * length, нажать Run, нажать GG, нажать Back to home
+    - Пользователю1 в блоке Online players нажать на Пользователя2; нажать Send an invite; выбрать Level=1, Game Type = With a bot, Choose task by name or tags = rect_area; нажать Create battle
+    - Пользователю2 в шапке сайта нажать на кнопку с двумя перекрещенными мечами; нажать Accept; в редакторе открывшейся игры вместо return 0 написать return width * length, нажать Run, нажать GG, нажать Back to home
     - Сравнить значение очков рейтинга после игры и до игры
   expected-result: |
     Рейтинг пользователя увеличился
@@ -796,9 +796,9 @@
     no data
   steps:
     - Зафиксировать рейтинг Пользователя1
-    - Пользователь1: в блоке Online players нажать на Пользователя2; нажать Send an invite; выбрать Level=1, Game Type = With a bot, Choose task by name or tags = rect_area; нажать Create battle
-    - Пользователь2: в шапке сайта нажать на кнопку с двумя перекрещенными мечами; нажать Accept; в редакторе открывшейся игры вместо return 0 написать return width * length, нажать Run
-    - Пользователь1: нажать Back to home
+    - Пользователю1 в блоке Online players нажать на Пользователя2; нажать Send an invite; выбрать Level=1, Game Type = With a bot, Choose task by name or tags = rect_area; нажать Create battle
+    - Пользователю2 в шапке сайта нажать на кнопку с двумя перекрещенными мечами; нажать Accept; в редакторе открывшейся игры вместо return 0 написать return width * length, нажать Run
+    - Пользователю1 нажать Back to home
     - Сравнить значение очков рейтинга после игры и до игры
   expected-result: |
     Рейтинг пользователя уменьшился
