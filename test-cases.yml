@@ -1,0 +1,543 @@
+---
+- summary: |
+    Проверка запуска игры незарегистрированным пользователем
+  requirement: |
+    Незарегистрированный пользователь может запустить игру с ботом
+  prerequisites: |
+    Пользователь не авторизован
+  test-data: |
+    no data
+  steps:
+    - Нажать "Try simple battle"
+  expected-result: |
+    Игра создана
+
+- summary: |
+    Проверка регистрации на сайте
+  requirement: |
+    При заполнении формы регистрации, пользователь будет зарегистрирован
+  prerequisites:
+    Открыта форма Sign Up
+  test-data: |
+    no data
+  steps:
+    - Ввести Nickname
+    - Ввести валидный Email
+    - Ввести Password
+    - Ввести Password Confirmation
+    - Нажать Submit
+  expected-result: |
+    Успешная регистрация пользователя
+    
+- summary: |
+    Проверка регистрации на сайте с пустыми полями
+  requirement: |
+    При вводе пустых полей при регистрации должна появиться ошибка
+  prerequisites: |
+    Открыта форма Sign Up
+  test-data: |
+    no data
+  steps:
+    - Нажать Submit
+  expected-result: |
+    Ошибка: регистрационные поля не могут быть пустыми
+    
+- summary: |
+    Проверка валидации формы Email при регистрации
+  requirement: |
+    При некорректном вводе Email при регистрации должна появиться ошибка
+  prerequisites: |
+    Открыта форма Sign Up
+  test-data: |
+    no data
+  steps:
+    - Ввести некорректный Email
+    - Ввести email с символами "!", "?", "=", "+"
+  expected-result: |
+    Ошибки "Invalid email", "Can't contain special symbols"
+
+- summary: |
+    Проверка валидации формы Nickname при регистрации
+  requirement: |
+    При некорректном вводе Nickname при регистрации должна появиться ошибка
+  prerequisites: |
+    Открыта форма Sign Up
+  test-data: |
+    no data
+  steps:
+    - Ввести Nickname с символами "!", "?", "=", "+"
+    - Ввести Nickname из 2х символов
+  expected-result: |
+    Ошибки "Should contain Latin letters, numbers and underscores. Only begin with latin letter", "Should be from 3 to 16 characters"
+
+- summary: |
+    Проверка уникальности Nickname при регистрации
+  requirement: |
+    При заполнении формы Nickname уже существующим Nickname должна появиться ошибка
+  prerequisites:
+    Открыта форма Sign Up
+  test-data: |
+    Nickname = test
+  steps:
+    - Ввести Nickname
+    - Ввести валидный Email
+    - Ввести Password
+    - Ввести Password Confirmation
+    - Нажать Submit
+  expected-result: |
+    Ошибка "Nickname is already taken"
+        
+- summary: |
+    Проверка валидации формы Password при регистрации
+  requirement: |
+    При некорректном вводе Password при регистрации должна появиться ошибка
+  prerequisites: |
+    Открыта форма Sign Up
+  test-data: |
+    no data
+  steps:
+    - Ввести Password с пробелом
+    - Ввести Password из 2х символов
+  expected-result: |
+    Ошибки "Can't contain empty symbols", "Should be from 6 to 16 characters"
+
+- summary: |
+    Проверка формы подтверждения пароля при регистрации
+  requirement: |
+    При несовпадении полей Password и Password Confirmation при регистрации должна появиться ошибка
+  prerequisites: |
+    Открыта форма Sign Up
+  test-data: |
+    no data
+  steps:
+    - Ввести Password 
+    - Ввести Password Confirmation, отличающийся от Password
+  expected-result: |
+    Ошибка "Passwords must match"
+        
+- summary: |
+    Проверка входа пользователя с существующими email и паролем
+  requirement: |
+    При верном вводе email и пароля пользователь должен войти в систему
+  prerequisites: |
+    Открыта форма Sign In
+  test-data: |
+    Email = test@list.ru ; Password = 123456
+  steps:
+    - Ввести Email
+    - Ввести Password
+    - Нажать Submit
+  expected-result: |
+    Пользователь успешно авторизован
+
+- summary: |
+    Проверка входа пользователя с несуществующими email и паролем
+  requirement: |
+    При неправильном email или пароле пользователь должен получить сообщение об ошибке
+  prerequisites:
+    Открыта форма Sign In
+  test-data: |
+    Email = test@list.ru ; Password = 123456
+  steps:
+    - Ввести несуществующий Email
+    - Ввести несуществующий Password
+    - Нажать Submit
+  expected-result: |
+    Пользователь должен получить сообщение об ошибке
+
+- summary: |
+    Проверка авторизации через Github
+  requirement: |
+    Пользователь должен войти в систему через аккаунт Github
+  prerequisites: |
+    - Зарегистрирован аккаунт на Github
+    - Выполнен вход в аккаунт GitHub
+    - Открыта форма Sign in
+  test-data: |
+    no data
+  steps:
+    - Нажать Sign in with Github
+  expected-result: |
+    Пользователь успешно авторизован
+
+- summary: |
+    Проверка авторизации через Discord
+  requirement: |
+    Пользователь должен войти в систему через аккаунт Discord
+  prerequisites: |
+    - Зарегистрирован аккаунт на Discord
+    - Выполнен вход в аккаунт Discord
+    - Открыта форма Sign in
+  test-data: |
+    no data
+  steps:
+    - Нажать Sign in with Discord
+  expected-result: |
+    Пользователь успешно авторизован
+        
+- summary: |
+    Проверка создания игры с ботами
+  requirement: |
+    Пользователь может создать игру с ботом
+  prerequisites: |
+    no data
+  test-data: |
+    no data
+  steps:
+    - Нажать Create a game
+    - Нажать With a bot
+    - В открывшемся окне нажать Create battle
+  expected-result: |
+    Игра с ботом создана
+
+- summary: |
+    Проверка создания игры с другим игроком
+  requirement: |
+    Пользователь может создать игру с другим игроком
+  prerequisites: |
+    no data
+  test-data: |
+    no data
+  steps:
+    - Нажать Create a game
+    - Нажать With other user
+    - В открывшемся окне нажать Create battle
+  expected-result: |
+    Игра с другим игроком создана
+        
+- summary: |
+    Проверка отправки запроса на игру другу через форму создания игры
+  requirement: |
+    Пользователь может отправить запрос на игру другу
+  prerequisites: |
+    no data
+  test-data: |
+    no data
+  steps:
+    - Нажать Create a game
+    - Нажать With a friend
+    - В поле Choose opponent найти и выбрать друга
+    - Нажать Create battle
+  expected-result: |
+    Запрос на игру отправлен другу
+
+- summary: |
+    Проверка отправки запроса на игру другу через главную страницу
+  requirement: |
+    Пользователь может отправить запрос на игру другу
+  prerequisites: |
+    no data
+  test-data: |
+    no data
+  steps:
+    - В блоке Online players: нажать на нужного человека
+    - Нажать Send an invite
+    - Нажать Create battle
+  expected-result: |
+    Запрос на игру отправлен другу
+        
+- summary: |
+    Проверка принятия запроса на игру от другого игрока
+  requirement: |
+    Пользователь может принять запрос на игру от другого игрока
+  prerequisites: |
+    Два пользователя авторизованы в системе
+  test-data: |
+    Пользователь 1: Email = test@list.ru ; Password = 123456
+    Пользователь 2: Email = test2@list.ru ; Password = 123456
+  steps:
+    - Пользователю 1: В блоке Online players нажать на нужного человека, нажать Send an invite, нажать Create battle
+    - Пользователю 2: В шапке сайта нажать на кнопку с двумя перекрещенными мечами, нажать Accept
+  expected-result: |
+    Игра началась
+
+- summary: |
+    Проверка отклонения запроса на игру от другого игрока
+  requirement: |
+    Пользователь может отклонить запрос на игру от другого игрока
+  prerequisites: |
+    Два пользователя авторизованы в системе
+  test-data: |
+    Пользователь 1: Email = test@list.ru ; Password = 123456
+    Пользователь 2: Email = test2@list.ru ; Password = 123456
+  steps:
+    - Пользователю 1: В блоке Online players нажать на нужного человека, нажать Send an invite, нажать Create battle
+    - Пользователю 2: В шапке сайта нажать на кнопку с двумя перекрещенными мечами, нажать Decline
+  expected-result: |
+    Запрос на игру отклонён
+
+- summary: |
+    Проверка отмены запроса на игру другому игроку
+  requirement: |
+    Пользователь может отменить свой запрос на игру другому игроку
+  prerequisites: |
+    no data
+  test-data: |
+    Email = test@list.ru ; Password = 123456
+  steps:
+    - В шапке сайта нажать на кнопку с двумя перекрещенными мечами
+    - Нажать Clancel
+  expected-result: |
+    Запрос на игру другому игроку отменён
+
+- summary: |
+    Проверка возможности выбора уровня при создании игры
+  requirement: |
+    Пользователь может создать игру, выбрав уровень игры
+  prerequisites:
+    no data
+  test-data: |
+    no data
+  steps:
+    - Нажать Create a game
+    - Нажать With a bot
+    - В поле Level выбрать уровень игры
+    - В открывшемся окне нажать Create battle
+  expected-result: |
+    Пользователь создаст игру с выбранным уровнем игры
+        
+- summary: |
+    Проверка возможности установки таймера при создании игры
+  requirement: |
+    Пользователь может создать игру, установив таймер
+  prerequisites:
+    no data
+  test-data: |
+    no data
+  steps:
+    - Нажать Create a game
+    - Нажать With a bot
+    - В поле Time control настроить время
+    - В открывшемся окне нажать Create battle
+  expected-result: |
+    Пользователь создаст игру с установленным таймером
+
+- summary: |
+    Проверка возможности выбора задания при создании игры
+  requirement: |
+    Пользователь может создать игру, выбрав задание
+  prerequisites:
+    no data
+  test-data: |
+    no data
+  steps:
+    - Нажать Create a game
+    - Нажать With a bot
+    - В поле Choose task by name or tags выбрать любое задание
+    - В открывшемся окне нажать Create battle
+  expected-result: |
+    Пользователь создаст игру с выбранным заданием
+
+- summary: |
+    Проверка возможности выбора игры в лобби
+  requirement: |
+    Пользователь может выбрать подходящую для себя игру в лобби
+  prerequisites:
+    no data
+  test-data: |
+    no data
+  steps:
+    - В лобби выбрать любую игру
+    - Нажать Fight
+  expected-result: |
+    Пользователь присоединится к игре
+
+- summary: |
+    Проверка возможности выбора необходимого языка программирования во время игры
+  requirement: |
+    Во время игры пользователь может выбрать нужный ему язык программирования
+  prerequisites:
+    no data
+  test-data: |
+    no data
+  steps:
+    - Нажать Create a game
+    - Нажать With a bot
+    - В открывшемся окне нажать Create battle
+    - Выбрать язык в выпадающем списке
+  expected-result: |
+    Язык программирования у пользователя поменяется на выбранный
+
+- summary: |
+    Проверка возможности писать в чате во время игры
+  requirement: |
+    Во время игры у пользователей открыт чат, где можно отправлять сообщения
+  prerequisites:
+    no data
+  test-data: |
+    no data
+  steps:
+    - Нажать Create a game
+    - Нажать With a bot
+    - В открывшемся окне нажать Create battle
+    - В чате написать сообщение
+  expected-result: |
+    Сообщение отправлено в чат
+
+- summary: |
+    Проверка описания задания на русском или английском языках
+  requirement: |
+    Во время игры задание можно открыть на двух языках - русском или английском
+  prerequisites:
+    no data
+  test-data: |
+    no data
+  steps:
+    - Нажать Create a game
+    - Нажать With a bot
+    - В открывшемся окне нажать Create battle
+    - Нажать En
+    - Нажать Rus
+  expected-result: |
+    Описание задания есть на двух языках - русском или английском
+
+- summary: |
+    Проверка возможности сдаться во время игры
+  requirement: |
+    Пользователь во время игры может сдаться
+  prerequisites:
+    no data
+  test-data: |
+    no data
+  steps:
+    - Нажать Create a game
+    - Нажать With a bot
+    - В открывшемся окне нажать Create battle
+    - Нажать на красный флажок
+    - Нажать Give up
+    - Нажать I’ll be back
+  expected-result: |
+    Пользователь сдался, игра для него завершилась, появилось уведомление, что соперник выиграл игру
+
+- summary: |
+    Проверка возможности переиграть игру заново с тем же соперником
+  requirement: |
+    Пользователь может после завершения игры сделать запрос на переигровку
+  prerequisites:
+    no data
+  test-data: |
+    no data
+  steps:
+    - Нажать Create a game
+    - Нажать With a bot
+    - В открывшемся окне нажать Create battle
+    - Нажать на красный флажок
+    - Нажать Give up
+    - Нажать I’ll be back
+    - Нажать Rematch
+  expected-result: |
+    Игра началась заново
+
+
+
+- summary: |
+    Проверка возможности выбора необходимого языка программирования во время игры
+  requirement: |
+    Пользователь может отправлять сообщения другому игроку лично 
+  prerequisites:
+    no data
+  test-data: |
+    no data
+  steps:
+    - Нажать Create a game
+    - Нажать With a bot
+    - В открывшемся окне нажать Create battle
+    - Выбрать язык в выпадающем списке
+  expected-result: |
+    Язык программирования у пользователя поменяется на выбранный
+
+- summary: |
+    Проверка возможности выбора необходимого языка программирования во время игры
+  requirement: |
+    В лобби есть чат для авторизованных пользователей
+  prerequisites:
+    no data
+  test-data: |
+    no data
+  steps:
+    - Нажать Create a game
+    - Нажать With a bot
+    - В открывшемся окне нажать Create battle
+    - Выбрать язык в выпадающем списке
+  expected-result: |
+    Язык программирования у пользователя поменяется на выбранный
+
+- summary: |
+    Проверка возможности выбора необходимого языка программирования во время игры
+  requirement: |
+    Пользователь может отредактировать свой профиль в настройках
+  prerequisites:
+    no data
+  test-data: |
+    no data
+  steps:
+    - Нажать Create a game
+    - Нажать With a bot
+    - В открывшемся окне нажать Create battle
+    - Выбрать язык в выпадающем списке
+  expected-result: |
+    Язык программирования у пользователя поменяется на выбранный
+
+- summary: |
+    Проверка возможности выбора необходимого языка программирования во время игры
+  requirement: |
+    Пользователь может отследить свой рейтинг и рейтинг других пользователей
+  prerequisites:
+    no data
+  test-data: |
+    no data
+  steps:
+    - Нажать Create a game
+    - Нажать With a bot
+    - В открывшемся окне нажать Create battle
+    - Выбрать язык в выпадающем списке
+  expected-result: |
+    Язык программирования у пользователя поменяется на выбранный
+
+- summary: |
+    Проверка возможности выбора необходимого языка программирования во время игры
+  requirement: |
+    После завершения игры пользователь получает очки рейтинга, из которых формируется общий рейтинг пользьователя
+  prerequisites:
+    no data
+  test-data: |
+    no data
+  steps:
+    - Нажать Create a game
+    - Нажать With a bot
+    - В открывшемся окне нажать Create battle
+    - Выбрать язык в выпадающем списке
+  expected-result: |
+    Язык программирования у пользователя поменяется на выбранный
+
+- summary: |
+    Проверка возможности выбора необходимого языка программирования во время игры
+  requirement: |
+    После завершения игры пользователь получает очки рейтинга, из которых формируется общий рейтинг пользьователя
+  prerequisites:
+    no data
+  test-data: |
+    no data
+  steps:
+    - Нажать Create a game
+    - Нажать With a bot
+    - В открывшемся окне нажать Create battle
+    - Выбрать язык в выпадающем списке
+  expected-result: |
+    Язык программирования у пользователя поменяется на выбранный
+
+- summary: |
+    Проверка возможности выбора необходимого языка программирования во время игры
+  requirement: |
+    Пользователь может создать турнир, выбрав тип турнира, время начала, задание, уровень, количество игроков и язык программирования
+  prerequisites:
+    no data
+  test-data: |
+    no data
+  steps:
+    - Нажать Create a game
+    - Нажать With a bot
+    - В открывшемся окне нажать Create battle
+    - Выбрать язык в выпадающем списке
+  expected-result: |
+    Язык программирования у пользователя поменяется на выбранный
