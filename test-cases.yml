@@ -43,7 +43,7 @@
     Ошибка "Регистрационные поля не могут быть пустыми"
     
 - summary: |
-    Проверка валидации формы Email при регистрации
+    Проверка валидации формы Email при регистрации email, несоответствующего шаблону
   requirement: |
     При некорректном вводе Email при регистрации должна появиться ошибка
   prerequisites: |
@@ -51,13 +51,25 @@
   test-data: |
     no data
   steps:
-    - Ввести некорректный Email
-    - Ввести email с символами "!", "?", "=", "+"
+    - Ввести Email, несоответствующий шаблону
   expected-result: |
-    Ошибки "Invalid email", "Can't contain special symbols"
+    Ошибка "Invalid email"
 
 - summary: |
-    Проверка валидации формы Nickname при регистрации
+    Проверка валидации формы Email при регистрации email c символами "!", "?", "=", "+"
+  requirement: |
+    При некорректном вводе Email при регистрации должна появиться ошибка
+  prerequisites: |
+    Открыта форма Sign Up
+  test-data: |
+    no data
+  steps:
+    - Ввести email с символами "!", "?", "=", "+"
+  expected-result: |
+    Ошибка "Can't contain special symbols"
+
+- summary: |
+    Проверка валидации формы Nickname при регистрации Nickname с символами "!", "?", "=", "+"
   requirement: |
     При некорректном вводе Nickname при регистрации должна появиться ошибка
   prerequisites: |
@@ -66,9 +78,34 @@
     no data
   steps:
     - Ввести Nickname с символами "!", "?", "=", "+"
+  expected-result: |
+    Ошибка "Should contain Latin letters, numbers and underscores. Only begin with latin letter"
+
+- summary: |
+    Проверка валидации формы Nickname при регистрации Nickname из 2х символов
+  requirement: |
+    При вводе некорректного Nickname при регистрации должна появиться ошибка
+  prerequisites: |
+    Открыта форма Sign Up
+  test-data: |
+    no data
+  steps:
     - Ввести Nickname из 2х символов
   expected-result: |
-    Ошибки "Should contain Latin letters, numbers and underscores. Only begin with latin letter", "Should be from 3 to 16 characters"
+    Ошибка "Should be from 3 to 16 characters"
+
+- summary: |
+    Проверка валидации формы Nickname при регистрации Nickname из 17 символов
+  requirement: |
+    При вводе некорректного Nickname при регистрации должна появиться ошибка
+  prerequisites: |
+    Открыта форма Sign Up
+  test-data: |
+    no data
+  steps:
+    - Ввести Nickname из 17 символов
+  expected-result: |
+    Ошибка "Should be from 3 to 16 characters"
 
 - summary: |
     Проверка уникальности Nickname при регистрации
@@ -88,7 +125,20 @@
     Ошибка "Nickname is already taken"
         
 - summary: |
-    Проверка валидации формы Password при регистрации
+    Проверка валидации формы Password с пустым значением при регистрации
+  requirement: |
+    При вводе Password при регистрации пустого пароля должна появиться ошибка
+  prerequisites: |
+    Открыта форма Sign Up
+  test-data: |
+    no data
+  steps:
+    - Ввести Password с пробелом
+  expected-result: |
+    Ошибка "Can't contain empty symbols"
+
+- summary: |
+    Проверка валидации формы Password при регистрации с паролем из 3х символов
   requirement: |
     При некорректном вводе Password при регистрации должна появиться ошибка
   prerequisites: |
@@ -96,10 +146,22 @@
   test-data: |
     no data
   steps:
-    - Ввести Password с пробелом
     - Ввести Password из 2х символов
   expected-result: |
-    Ошибки "Can't contain empty symbols", "Should be from 6 to 16 characters"
+    Ошибка "Should be from 6 to 16 characters"
+
+- summary: |
+    Проверка валидации формы Password при регистрации с паролем из 17х символов
+  requirement: |
+    При некорректном вводе Password при регистрации должна появиться ошибка
+  prerequisites: |
+    Открыта форма Sign Up
+  test-data: |
+    no data
+  steps:
+    - Ввести Password из 17 символов
+  expected-result: |
+    Ошибка "Should be from 6 to 16 characters"
 
 - summary: |
     Проверка формы подтверждения пароля при регистрации
